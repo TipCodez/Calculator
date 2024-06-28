@@ -1,0 +1,139 @@
+<Button>
+    size_hint: (0.2, 0.2)
+    background_normal: ''
+    background_color: (2/255, 22/255, 24/255, 1)
+
+
+<CalculatorWidget>
+    BoxLayout
+        orientation: "vertical"
+        size: root.width, root.height
+
+        TextInput:
+            id: input_box
+            text: ""
+            multiline: False
+            font_size: 43
+            halign: "right"
+            size_hint: (1, 0.23)
+            background_color: (2/255, 22/255, 24/255, .5)
+            foreground_color: (1,1,1,1)
+
+
+        GridLayout:
+            cols: 4
+            rows: 5
+            spacing: 3
+            ### Row 1_____________________
+            Button:
+                text: "%"
+                font_size:32
+                on_press: root.get_operator("%")
+
+
+            Button:
+                id:animate
+
+                text: "C"
+                font_size:32
+                on_press: root.clear()
+
+            Button:
+                id: delete
+                text: U"\u00AB"
+                font_size:32
+                on_press: root.delete_last_number()
+
+            Button:
+                text: "/"
+                font_size:32
+                background_color: (14/255, 75/255, 176/255)
+                on_press: root.get_operator("/")
+            ### Row 2_____________________
+
+            Button:
+                text: "7"
+                font_size:32
+                on_press: root.button_value(7)
+
+            Button:
+                text: "8"
+                font_size:32
+                on_press: root.button_value(8)
+
+            Button:
+                text: "9"
+                font_size:32
+                on_press: root.button_value(9)
+
+            Button:
+                text: "*"
+                font_size:32
+                background_color: (14/255, 75/255, 176/255)
+                on_press: root.get_operator("*")
+
+
+            ##Row3_________________________
+            Button:
+                text: "4"
+                font_size:32
+                on_press: root.button_value(4)
+
+            Button:
+                text: "5"
+                font_size:32
+                on_press: root.button_value(5)
+
+            Button:
+                text: "6"
+                font_size:32
+                on_press: root.button_value(6)
+
+            Button:
+                text: "-"
+                font_size:32
+                background_color: (14/255, 75/255, 176/255)
+                on_press: root.get_operator("-")
+
+            ###Row 4_____________________________
+            Button:
+                text: "1"
+                font_size:32
+                on_press: root.button_value(1)
+
+            Button:
+                text: "2"
+                font_size:32
+                on_press: root.button_value(2)
+
+            Button:
+                text: "3"
+                font_size:32
+                on_press: root.button_value(3)
+            Button:
+                text: "+"
+                font_size:32
+                background_color: (14/255, 75/255, 176/255)
+                on_press: root.get_operator("+")
+
+            ###Row 5_________________________________
+            Button:
+                text: "+/-"
+                font_size:32
+                on_press: root.positive_negative()
+
+            Button:
+                text: "0"
+                font_size:32
+                on_press: root.button_value(0)
+
+            Button:
+                text: "."
+                font_size:32
+                on_press: root.get_operator(".")
+
+            Button:
+                text: "="
+                font_size:32
+                background_color: (14/255, 75/255, 176/255)
+                on_press: root.evaluate_results()
